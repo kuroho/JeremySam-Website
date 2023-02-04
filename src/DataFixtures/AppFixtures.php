@@ -13,7 +13,7 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $this->faker = Factory::create();
+        $this->faker = Factory::create("fr-FR");
         $this->addUsers($manager);
 
         $manager->flush();
@@ -26,9 +26,11 @@ class AppFixtures extends Fixture
             $user = new User();
             $name = $this->faker->firstName;
             $surname = $this->faker->lastName;
+            $ip = $this->faker->ipv4;
             $user->setName($name);
             $user->setSurname($surname);
             $user->setEmail($name.".".$surname."@yahoo.fr");
+            $user->setIp($ip);
             $manager->persist($user);
         }
         $manager->flush();

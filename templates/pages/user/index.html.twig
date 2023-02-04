@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jérémy Sam - Visiteurs{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Visiteurs</h1>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="name">Prénom</th>
+                    <th scope="surname">Nom</th>
+                    <th scope="email">Email</th>
+                    <th scope="ip">ipv4</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}  
+                    <tr class="table-dark">
+                        <td>{{user.name}}</td>
+                        <td>{{user.surname}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.ip}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+{% endblock %}

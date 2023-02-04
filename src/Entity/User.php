@@ -22,6 +22,9 @@ class User
     #[ORM\Column(length: 50)]
     private ?string $email = null;
 
+    #[ORM\Column(length: 15)]
+    private ?string $ip = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class User
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getIp(): ?string
+    {
+        return $this->ip;
+    }
+
+    public function setIp(string $ip): self
+    {
+        $this->ip = $ip;
 
         return $this;
     }
